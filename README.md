@@ -3,9 +3,8 @@
 This is the source code for [Springer Quotes](http://springerquotes.heroku.com/),
 the application with which [I won the 1st prize][challenge] in the Springer API Challenge 1.0
 
-Technology-wise this is a rather simple ruby application (ruby 1.8.7), which uses Sinatra for the server implementation.
+I am open sourcing this code, so that others can take some bits and pieces that they need. Also this seems like the right thing to do, as I have used some many open source tools (as you will see later).
 
-I am open sourcing this code, so that others can maybe take some bits and pieces that they need.
 There are two interesting pieces to this application that I want to highlight:
 
 * It uses the [Emphasis Library](https://github.com/NYTimes/Emphasis) for the quote selection effect in the UI,
@@ -30,6 +29,7 @@ Besides this source code, these are the tools and services that I used to build 
 
 Before you can run this application you will need a couple of things:
 
+- ruby 1.8.7
 - your own CouchDB instance
 - [Springer API account](http://dev.springer.com)
 - (optionally) a bit.ly account 
@@ -40,9 +40,9 @@ Once you have these, you need to modify the configuration file `environment_vari
 
 1. `bundle`
 1. `bundle exec rackup`
-1. Springer Quotes is now running at http://localhost:9292
+1. Springer Quotes is now running at `http://localhost:9292`
 
-Test that the application by visiting the following URLs:
+Test the application by visiting the following URLs:
 [normal article view](http://localhost:9292/article/doi:10.1007/s10680-009-9177-y#h[Itacin,1,4]), 
 [quotes view](http://springerquotes.heroku.com/quotes/doi:10.1007/s10680-009-9177-y?quotes=h[Itacin,1,4])
 

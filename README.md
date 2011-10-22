@@ -9,9 +9,8 @@ I am open sourcing this code, so that others can take some bits and pieces that 
 
 There are two interesting pieces to this application that I want to highlight:
 
-* It uses the [Emphasis Library](https://github.com/NYTimes/Emphasis) for the quote selection effect in the UI,
-and I have ported that code to ruby as well for use as the server side counter part (see `./emphasis` folder). 
-* I use XSLT to transform the XML format returned by the Springer API into XHTML that can be used for the web.
+* It uses the [Emphasis JavaScript Library](https://github.com/NYTimes/Emphasis) for the quote selection effect in the UI. I have ported the Javascript code to ruby as well, for use as the server side counter part (see `./emphasis` folder). 
+* It uses XSLT to transform Springer's A++ XML format, as returned by the Springer API, into XHTML that can be used for the web. 
 
 ## Tools used
 
@@ -34,11 +33,11 @@ Besides this source code, these are the tools and services that I used to build 
 Before you can run this application you will need a couple of things:
 
 - ruby 1.8.7
-- your own CouchDB instance
-- [Springer API account](http://dev.springer.com)
+- your own CouchDB
+- [Springer API keys](http://dev.springer.com)
 - (optionally) a bit.ly account 
 
-Once you have these, you need to modify the configuration file `environment_variables.rb` and enter your access credentials there.
+Once you have these, you need to modify the configuration file `environment_variables.rb` accordingly.
 
 ## Installation
 
@@ -49,6 +48,9 @@ Once you have these, you need to modify the configuration file `environment_vari
 Test the application by visiting the following URLs:
 [normal article view](http://localhost:9292/article/doi:10.1007/s10680-009-9177-y#h[Itacin,1,4]), 
 [quotes view](http://springerquotes.heroku.com/quotes/doi:10.1007/s10680-009-9177-y?quotes=h[Itacin,1,4])
+
+![normal article view](./example_images/normal_article_view.png)
+![quotes view](./example_images/quotes_view.png)
 
 If you should have any issues getting this to work, you can ping me [@sebastianspier][@seb] and I will try to help you out.
 

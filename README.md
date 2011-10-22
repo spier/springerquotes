@@ -49,7 +49,7 @@ Test the application by visiting the following URLs:
 [normal article view](http://localhost:9292/article/doi:10.1007/s10680-009-9177-y#h[Itacin,1,4]), 
 [quotes view](http://springerquotes.heroku.com/quotes/doi:10.1007/s10680-009-9177-y?quotes=h[Itacin,1,4])
 
-![normal article view](example_images/normal_article_view.png)
+![normal article view](raw/master/example_images/normal_article_view.png)
 ![quotes view](./example_images/quotes_view.png)
 
 If you should have any issues getting this to work, you can ping me [@sebastianspier][@seb] and I will try to help you out.

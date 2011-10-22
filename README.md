@@ -5,11 +5,15 @@ the application with which [I won the 1st prize][challenge] in the Springer API 
 
 I am open sourcing this code, so that others can take some bits and pieces that they need. Also this seems like the right thing to do, as I have used some many open source tools (as you will see later).
 
+## Highlights
+
 There are two interesting pieces to this application that I want to highlight:
 
 * It uses the [Emphasis Library](https://github.com/NYTimes/Emphasis) for the quote selection effect in the UI,
 and I have ported that code to ruby as well for use as the server side counter part (see `./emphasis` folder). 
 * I use XSLT to transform the XML format returned by the Springer API into XHTML that can be used for the web.
+
+## Tools used
 
 Besides this source code, these are the tools and services that I used to build Springer Quotes:
 	
@@ -25,7 +29,7 @@ Besides this source code, these are the tools and services that I used to build 
 	<li><a href="http://jquery.com">jQuery</a> as my JavaScript library of choice</a></li>
 </ul>
 
-# Prerequisites 
+## Prerequisites 
 
 Before you can run this application you will need a couple of things:
 
@@ -36,7 +40,7 @@ Before you can run this application you will need a couple of things:
 
 Once you have these, you need to modify the configuration file `environment_variables.rb` and enter your access credentials there.
 
-# Installation
+## Installation
 
 1. `bundle`
 1. `bundle exec rackup`

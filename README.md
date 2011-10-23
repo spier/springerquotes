@@ -9,8 +9,8 @@ I am open sourcing this code, so that others can take some bits and pieces that 
 
 There are two interesting pieces to this application that I want to highlight:
 
-* It uses the [Emphasis JavaScript Library](https://github.com/NYTimes/Emphasis) for the quote selection effect in the UI. I have ported the Javascript code to ruby as well, for use as the server side counter part (see `./emphasis` folder). 
-* It uses XSLT to transform Springer's A++ XML format, as returned by the Springer API, into XHTML that can be used for the web. 
+* It uses the [Emphasis JavaScript Library](https://github.com/NYTimes/Emphasis) for the quote selection effect in the UI. I have ported the Javascript code to ruby as well. This is used for the generation of the **quotes view** (see the images below). The code for this can be found in the `./emphasis` folder. 
+* It uses an XSLT to transform Springer's A++ XML format, as returned by the Springer API, into HTML. These XSLTs can be found in the in the `./xls` folder. 
 
 ## Tools used
 
@@ -47,8 +47,8 @@ Once you have these, you need to modify the configuration file `environment_vari
 
 Test the application by visiting the following URLs. The screens should look like the images below.
 
-- normal article view - `http://localhost:9292/article/doi:10.1007/s10680-009-9177-y#h[Itacin,1,4]` 
-- quotes view - `http://localhost:9292/quotes/doi:10.1007/s10680-009-9177-y?quotes=h[Itacin,1,4]`
+- **normal article view** - `http://localhost:9292/article/doi:10.1007/s10680-009-9177-y#h[Itacin,1,4]` 
+- **quotes view** - `http://localhost:9292/quotes/doi:10.1007/s10680-009-9177-y?quotes=h[Itacin,1,4]`
 
 ![normal article view](https://github.com/spier/springerquotes/raw/master/example_images/normal_article_view.png "Normal article view") 
 ![quotes view](https://github.com/spier/springerquotes/raw/master/example_images/quotes_view.png "Quotes view") 

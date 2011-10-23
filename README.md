@@ -57,6 +57,10 @@ Test the application by visiting the following URLs. The screens should look lik
 
 Have fun with [Springer Quotes][sq]!
 
+# License
+
+[MIT License (MIT)](http://spier.mit-license.org/)
+
 [@seb]: https://twitter.com/#!/sebastianspier
 [challenge]: http://spier.hu/2011/07/i-won-the-springer-api-challenge-1.0/
 [sq]: http://springerquotes.heroku.com

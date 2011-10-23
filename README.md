@@ -1,17 +1,18 @@
 # Springer Quotes
 
-This is the source code for [Springer Quotes](http://springerquotes.heroku.com/),
-the application with which [I won the 1st prize][challenge] in the Springer API Challenge 1.0
-If you should have any issues getting this to work, you can ping me [@sebastianspier][@seb] and I will try to help out.
+This is the source code for [Springer Quotes][sq], the application with which [I won the 1st prize][challenge] in the Springer API Challenge 1.0.
 
 I am open sourcing this code, so that others can take some bits and pieces that they need. Also this seems like the right thing to do, as I have used some many open source tools (as you will see later).
+
+If you should have any issues getting this to work, you can ping me [@sebastianspier][@seb] and I will try to help out.
 
 ## Highlights
 
 There are two interesting pieces to this application that I want to highlight:
 
-* `./emphasis` folder - It uses the [Emphasis JavaScript Library](https://github.com/NYTimes/Emphasis) for the quote selection effect in the UI. I have ported the Javascript code to ruby as well. This is used for the generation of the **quotes view** (see the images below). 
-* `./xls` folder - It uses an XSLT to transform Springer's A++ XML format, as returned by the Springer API, into HTML. 
+* `./emphasis` folder - The [Emphasis JavaScript Library](https://github.com/NYTimes/Emphasis) is used for the quote selection effect in the UI. I have ported the Javascript code to ruby as well. This is used for the generation of the **quotes view** (see the images below). 
+* `./xls` folder - XSLT is used to transform Springer's A++ XML format, as returned by the Springer API, into HTML. 
+* yql_simple gem - I am using my ruby gem [YqlSimple](spier/gem_yql_simple) as a minimalist wrapper around [YQL][yql]. I don't really need the power of YQL in this application but I like YQL, so I ended up using it for the bit.ly communication ;)
 
 ## Tools
 
@@ -35,7 +36,7 @@ Before you can run this application you will need a couple of things:
 
 - ruby 1.8.7
 - your own CouchDB
-- Springer API keys - go to the [Springer API portal](http://dev.springer.com)  and register
+- Springer API keys - go to the [Springer API portal](http://dev.springer.com) and register to get your own keys
 - (optionally) a bit.ly account 
 
 Once you have these, you need to modify the configuration file `environment_variables.rb` accordingly.
@@ -54,7 +55,9 @@ Test the application by visiting the following URLs. The screens should look lik
 ![normal article view](https://github.com/spier/springerquotes/raw/master/example_images/normal_article_view.png "Normal article view") 
 ![quotes view](https://github.com/spier/springerquotes/raw/master/example_images/quotes_view.png "Quotes view") 
 
-Have fun with Springer Quotes!
+Have fun with [Springer Quotes][sq]!
 
 [@seb]: https://twitter.com/#!/sebastianspier
 [challenge]: http://spier.hu/2011/07/i-won-the-springer-api-challenge-1.0/
+[sq]: http://springerquotes.heroku.com
+[yql]: http://developer.yahoo.com/yql

@@ -1,0 +1,177 @@
+<html>
+<head>
+		<!-- 
+			recommendation HTML changes
+			http://html5boilerplate.com/docs/#head-Tips
+		-->
+		<meta charset='UTF-8'/>
+		<link rel="dns-prefetch" href="http://ajax.googleapis.com" />
+		<link rel="dns-prefetch" href="http://fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="http://cdn.mathjax.org" />
+		<!-- <meta http-equiv='Content-type' content='text/html;charset=UTF-8' /> -->
+		
+		<title>Springer Quotes - <%= @title %></title>
+		<meta name="author" content="Sebastian Spier"/>
+		<meta name="description" content="Springer Quotes let's you search more than 80 thousand articles from Springer's open access journals, and create quotes from these articles."/>
+		<meta name="keywords" content="Springer, Open Access, Quote, Quotes"/>		
+		
+		<!-- Emphasis lib from NYT -->
+		<!-- <script src='https://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js'></script>
+		<script src='/Emphasis/js/emphasis-src.js'></script> -->
+		
+		<!-- jQuery and jQuery UI -->
+		<link type='text/css' rel='stylesheet' href='/css/jquery-ui-1.8.12.custom/css/custom-theme/jquery-ui-1.8.12.custom.css' />	
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+		<script src='/css/jquery-ui-1.8.12.custom/js/jquery-ui-1.8.12.custom.min.js'></script>	
+		
+		<!-- Emphasis lib that uses jQuery instead of prototype -->
+		<script src='/Emphasis/js/emphasis-src_jquery.js'></script>
+
+		<!-- google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Nobile&subset=latin' rel='stylesheet' type='text/css'>
+		
+		<!-- own scripts and styles -->
+		<script src='/javascript.js'></script>
+		<link type='text/css' rel='stylesheet' href='/styles.css' />
+		
+		<!-- modal box for the highlighting explanation -->
+		<script type="text/javascript" src="/facebox-1.3/src/facebox.js"></script>
+		<link type='text/css' rel='stylesheet' href='/facebox-1.3/src/facebox.css' />
+		
+		<!-- keeps the floating menu on at the top of the screen -->
+		<script src="/js/waypoints/waypoints.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			// var $j = jQuery.noConflict();
+			jQuery.noConflict();
+    
+	    // Put all your code in your document ready area
+	    jQuery(document).ready(
+				function(){
+					// init settings for facebox
+					jQuery.facebox.settings.closeImage = '/facebox-1.3/src/closelabel.png';
+					jQuery.facebox.settings.loadingImage = '/facebox-1.3/src/loading.gif';
+					jQuery('a[rel*=facebox]').facebox();
+					
+					// init sticky parts
+					jQuery('.top').addClass('hidden');
+					jQuery('#container').waypoint(function(event, direction) {
+						jQuery('.top').toggleClass('hidden', direction === "up");
+					}, {
+						offset: '-100%'
+					}).find('#menue').waypoint(function(event, direction) {
+						jQuery(this).toggleClass('sticky', direction === "down");
+						event.stopPropagation();
+					});
+	    	}
+			);
+			
+			function share(){
+				// create shortened link
+				jQuery.post(
+					"/shorten", 
+					{ 
+						springer_id: "<%= @springer_id %>",
+						title: "<%= @title %>",
+						longUrl: window.location.href
+					},
+					function(data){
+						// set shortened link
+						// var short_url = '<a href="' + data.short_url + '">'	+ data.short_url + '</a>';
+						jQuery('#short_url a').attr("href", data.short_url);
+						jQuery('#short_url a').html(data.short_url);
+						
+						// set twitter link
+						var twitter_share_link = "http://twitter.com/home/?status=" + escape("Just highlighted '<%= @title[0..75] %>...' on @springerquotes. " + data.short_url);
+						//console.log(twitter_share_link);
+						jQuery('#twitter_share a').attr("href", twitter_share_link);
+					 }, 
+					"json"
+				);				
+				
+				// show the sharing box
+				// jQuery.facebox({ajax:'static/howto.html'}, 'sharing_box');
+				jQuery.facebox({div:'#sharing_box'}, 'sharing_box');
+			}
+		</script>
+		
+		<!-- load MathJax: beautiful display of Math formulas -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    extensions: ["tex2jax.js"],
+		    jax: ["input/TeX", "output/HTML-CSS"],
+		    tex2jax: {
+		      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		      processEscapes: true
+		    },
+		    "HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>		
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+		
+		<!-- load google analytics -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-1782093-6']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>				
+</head>
+<body>
+<div id='container'>
+	<a href='/'><img id="logo" src="/springerquotes_logo.png" alt="Springer Quotes" title="Springer Quotes"></a>
+	
+	<div id="menue">
+		<a class="button" href="/static/howto.html" rel="facebox">Full Explanation</a> |
+		<a class="button" href="javascript:share();">Share Quotes</a> |
+		<a class="button" href="/static/about.html" rel="facebox[.about]">About Springer Quotes</a>
+	</div>
+
+	<div id="simple_explanation" class="complement-5">	
+		<h3>How to quote from this article?</h3>
+		<strong>Double-tap the Shift key.</strong> Paragraph symbols ¶ will appear next to each paragraph. Click any paragraph symbol to generate a link to that paragraph, or click on individual sentences if you don't need the whole paragraph. Also see the <a href="/static/howto.html" rel="facebox">full explanation</a>.
+	</div>
+
+	<div id="article">
+	<%= @body %>
+	</div>
+	
+</div>	
+
+<div id="credit">	
+	<div>
+		<a href="/static/about.html" rel="facebox[.about]">Springer Quotes</a> was developed for the <a href="http://dev.springer.com/">Springer API Challenge</a> by <a href="http://twitter.com/#!/sebastianspier">Sebastian Spier</a> in 2011.
+	</div>
+	<a href="/humans.txt"><img width="88" height="31" border="0" src="/images/humanstxt-isolated-blank.gif"></a>
+</div>
+
+<!-- share this article  -->
+<div id="sharing_box">
+	<h2>Share this Article and Your Quotes</h2>
+	
+	<div>
+		Now that you have quoted something from this article you might want to share it with others. The URL to your Quotes is:
+		<div id="short_url">
+			<a href="" target="_blank"></a>
+		</div>
+				
+		<div id="twitter_share">
+			You like Twitter better for sharing? Sure, go ahead and tweet it:
+			<div>
+				<a href="http://twitter.com/home/?status=I like springerquotes!" target="_blank">Tweet this Article</a>
+			</div>
+		</div>		
+	</div>
+</div>
+
+
+
+
+</body>
+</html>

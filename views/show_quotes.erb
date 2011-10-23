@@ -1,0 +1,110 @@
+<html>
+<head>
+		<!-- 
+			recommendation HTML changes
+			http://html5boilerplate.com/docs/#head-Tips
+		-->
+		<meta charset='UTF-8'/>
+		<link rel="dns-prefetch" href="http://ajax.googleapis.com" />
+		<link rel="dns-prefetch" href="http://fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="http://cdn.mathjax.org" />
+		<!-- <meta http-equiv='Content-type' content='text/html;charset=UTF-8' /> -->
+		
+		<title>Springer Quotes - <%= @title %></title>
+		<meta name="author" content="Sebastian Spier"/>
+		<meta name="description" content="Springer Quotes let's you search more than 80 thousand articles from Springer's open access journals, and create quotes from these articles."/>
+		<meta name="keywords" content="Springer, Open Access, Quote, Quotes"/>
+		
+		<!-- jQuery and jQuery UI -->
+		<link type='text/css' rel='stylesheet' href='/css/jquery-ui-1.8.12.custom/css/custom-theme/jquery-ui-1.8.12.custom.css' />	
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+		<script src='/css/jquery-ui-1.8.12.custom/js/jquery-ui-1.8.12.custom.min.js'></script>
+		
+		<!-- Emphasis lib that uses jQuery instead of prototype -->
+		<script src='/Emphasis/js/emphasis-src_jquery.js'></script>
+		
+		<!-- google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Nobile&subset=latin' rel='stylesheet' type='text/css'>
+		
+		<!-- own scripts and styles -->
+		<script src='/javascript.js'></script>
+		<link type='text/css' rel='stylesheet' href='/styles.css' />
+		
+		<!-- modal box for the highlighting explanation -->
+		<script type="text/javascript" src="/facebox-1.3/src/facebox.js"></script>
+		<link type='text/css' rel='stylesheet' href='/facebox-1.3/src/facebox.css' />
+		
+		<!-- init facebox -->
+		<script type="text/javascript" charset="utf-8">
+	    $(document).ready(
+				function(){
+					// init settings for facebox
+					$.facebox.settings.closeImage = '/facebox-1.3/src/closelabel.png';
+					$.facebox.settings.loadingImage = '/facebox-1.3/src/loading.gif';
+					$('a[rel*=facebox]').facebox();
+	    	}
+			);
+		</script>
+		
+		<!-- load MathJax: beautiful display of Math formulas -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    extensions: ["tex2jax.js"],
+		    jax: ["input/TeX", "output/HTML-CSS"],
+		    tex2jax: {
+		      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		      processEscapes: true
+		    },
+		    "HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>		
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+		
+		<!-- load google analytics -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-1782093-6']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>		
+</head>
+<body>	
+	
+<div id='container'>
+	<a href='/'><img id="logo" src="/springerquotes_logo.png" alt="Springer Quotes" title="Springer Quotes"></a>
+	
+	<div id="article">
+		
+		<%= @body %>
+			
+		<% @highlightings.each do |hl| %>
+		<blockquote class="rectangle-speech-border">
+			<%= hl["elm"].to_html %>
+		</blockquote>	
+		<% end %>
+	</div>
+	
+	<div id="quotes_explanation" class="complement-5">
+		<h2>Want to read the full article?</h2>
+		<p>
+			Here you can only see a shortened version of this article, containing the quotes that somebody has highlighted for you. There may be a copyright on this article, so please refer to the <a href="http://dx.doi.org/<%= @springer_id.gsub(/doi:/,"") %>" target="_blank">original Springer article</a> for further information.
+		</p>
+	</div>
+	
+</div>	
+
+<div id="credit">	
+	<div>
+		<a href="/static/about.html" rel="facebox[.about]">Springer Quotes</a> was developed for the <a href="http://dev.springer.com/">Springer API Challenge</a> by <a href="http://twitter.com/#!/sebastianspier">Sebastian Spier</a> in 2011.
+	</div>
+	<a href="/humans.txt"><img width="88" height="31" border="0" src="/images/humanstxt-isolated-blank.gif"></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+/* TEAM */
+
+Design and Development: Sebastian Spier.
+Site: http://springerquotes.heroku.com
+Twitter: https://twitter.com/#!/sebastianspier.
+Location: Germany.
+
+
+/* THANKS */
+
+Emphasis - Michael Donohoe - https://github.com/NYTimes/Emphasis
+Logo artwork - Pascal Bertram - http://pixelmove.de 
+
+
+/* SITE */
+
+Last update: 2011/08/01 
+Software: 
+http://heroku.com - heroku for hosting this site
+http://couchone.com - CouchDB for the data storage
+http://www.ruby-lang.org/en + http://www.sinatrarb.com - Ruby and Sinatra for the implementation and server DSL
+http://bit.ly - bit.ly for shortening the links
+http://nokogiri.org - Nokogiri + XSLT for the conversion of Springer's A++ format into (somewhat) readable HTML.
+http://www.mathjax.org - MathJax for beautifying mathematic formulas
+http://jquery.com - jQuery as my JavaScript library of choice
+http://imakewebthings.github.com/jquery-waypoints/sticky-elements - 'Sticky' buttons at the top of the article
+http://nicolasgallagher.com/pure-css-speech-bubbles - Pure CSS speech bubbles for the nice speech bubbles you see on the /quotes page

@@ -1,0 +1,105 @@
+<html>
+<head>
+		<!-- 
+			recommendation HTML changes
+			http://html5boilerplate.com/docs/#head-Tips
+		-->
+		<meta charset='UTF-8'/>
+		<link rel="dns-prefetch" href="http://ajax.googleapis.com" />
+		<link rel="dns-prefetch" href="http://fonts.googleapis.com" />
+		<!-- <link rel="dns-prefetch" href="http://cdn.mathjax.org" /> -->
+		<!-- <meta http-equiv='Content-type' content='text/html;charset=UTF-8' /> -->
+
+		<title>Springer Quotes</title>
+		<meta name="author" content="Sebastian Spier"/>
+		<meta name="description" content="Springer Quotes let's you search more than 80 thousand articles from Springer's open access journals, and create quotes from these articles."/>
+		<meta name="keywords" content="Springer, Open Access, Quote, Quotes"/>
+		
+		<link type='text/css' rel='stylesheet' href='/styles.css' />
+		
+		<!-- jQuery and jQuery UI -->
+		<link type='text/css' rel='stylesheet' href='/css/jquery-ui-1.8.12.custom/css/custom-theme/jquery-ui-1.8.12.custom.css' />	
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+		<script src='/css/jquery-ui-1.8.12.custom/js/jquery-ui-1.8.12.custom.min.js'></script>
+
+		<!-- google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Nobile&subset=latin' rel='stylesheet' type='text/css'>
+		
+		<!-- own scripts and styles -->
+		<script src='/javascript.js'></script>
+		
+		<!-- load google analytics -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-1782093-6']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>			
+</head>
+<body>
+<div id='container'>
+
+<a href='/'><img id="logo" src="/springerquotes_logo.png" alt="Springer Quotes" title="Springer Quotes"></a>
+
+<div id="search_box">
+	<form action='/search' method="get">
+  	<input type="text" name="search_terms" id="search_terms" value="<%= @search_terms.nil? ? "Enter Your Search" : @search_terms %>">
+  	<input type="submit" value="Search">
+	</form>
+</div>
+
+<!-- <div>
+	Click on any of the articles below to show the article and to highlight parts of it in order to share information with fellow researchers.
+</div> -->
+
+<div id="results">
+	<ol start="<%= @start_index %>">
+<% @search_results["records"].each do |record| %>
+		<li class="result" title="Show Full Article">
+			<a href="/article/<%= record["identifier"] %>"><%= record["title"] %></a> (<%= record["publicationDate"] %>)
+			<p class="article_metadata">
+				<%= record["publicationName"] %> - <%= record["publisher"] %>, 
+				<%= record["url"] %>  <br/>
+				<%= record["copyright"] %>
+			</p>	
+		</li>
+<% end %>
+	</ol>
+</div>	
+
+<div id="result_pagination">
+	Pages: 
+	<%
+		total_pages = @search_results["result"][0]["total"].to_i / @search_results["result"][0]["pageLength"].to_i
+		total_pages += 1 if (@search_results["result"][0]["total"].to_i % @search_results["result"][0]["pageLength"].to_i) > 0
+		i = 1
+		while i <= (PAGE_SIZE * MAX_PAGES) and i/PAGE_SIZE < total_pages do
+			display_page = (i-1) / PAGE_SIZE + 1
+	%>
+		<% if i == @start_index %>  
+			<%= display_page %>
+		<% else %>
+			<a href="/search?search_terms=<%= @search_terms %>&s=<%= i %>&p=<%= PAGE_SIZE %>"><%= display_page %></a>
+		<% end %>
+		
+		<% i += PAGE_SIZE %>
+	<% end %>
+	(Total Results: <%= @search_results["result"][0]["total"] %>)
+</div>
+
+</div>	
+
+<div id="credit">	
+	<div>
+		<a href="/static/about.html" rel="facebox[.about]">Springer Quotes</a> was developed for the <a href="http://dev.springer.com/">Springer API Challenge</a> by <a href="http://twitter.com/#!/sebastianspier">Sebastian Spier</a> in 2011.
+	</div>
+	<a href="/humans.txt"><img width="88" height="31" border="0" src="/images/humanstxt-isolated-blank.gif"></a>
+</div>
+
+</body>
+</html>

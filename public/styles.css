@@ -1,0 +1,440 @@
+/*
+Color scheme from:
+http://colorschemedesigner.com/#3A21ThYY7w0w0
+*/
+
+.primary-1 { background-color: #77B6F7 }
+/*.primary-2 { background-color: #7195B9 }*/
+.primary-3 { background-color: #2762A1 }
+/*.primary-4 { background-color: #99C9FB }*/
+/*.primary-5 { background-color: #B3D7FB }*/
+
+/*.complement-1 { background-color: #FFC670 }*/
+/*.complement-2 { background-color: #BF9F6F }*/
+.complement-3 { background-color: #A67224 }
+/*.complement-4 { background-color: #FFD494 }*/
+.complement-5 { background-color: #FFDFB0 }
+
+/*
+Colors used:
+- white
+- black
+- light blue 	#77B6F7
+- dark blue 	#2762A1
+- orange		#FFDFB0
+- dark orange	#A67224
+- grey
+*/
+
+body {
+  	background-color: 	#77B6F7;
+	font-family: 		'Nobile', arial, serif;
+  	font-size: 			14px;
+	margin: 			10px;
+	color: 				#000;
+}
+
+/* container in the middle */
+#container {
+  	width: 				800px;
+  	margin: 			0 auto;
+	padding: 			15px 20px 15px 20px;
+	background-color: 	#FFF;
+	border: 1px solid #000;
+}
+
+h1 {
+	text-align: 		center;
+}
+
+/*
+being so specific about the links was necesarry
+in order to not overwrite the styles from jquery UI
+*/
+#about a, #credit a, #simple_explanation a,
+#recent_quotes a, #sharing_box a, #results a,
+#result_pagination a, #facebox a, #quotes_explanation a,
+#article a:link {
+	text-decoration: 	none;
+	outline: 			none;
+	font-weight:		bold;
+	color: 				#2762A1;
+}
+#about a:hover, #credit a:hover, #simple_explanation a:hover,
+#recent_quotes a:hover, #sharing_box a:hover, #results a:hover,
+#result_pagination a:hover, #facebox a:hover, #quotes_explanation a:hover,
+#article a:hover {
+	color: 				#A67224;
+}
+
+p {
+	text-align: justify;
+}
+
+a.citation_reference{
+/*	font-size:			0.6em;
+	vertical-align:		super; */
+}
+
+/* use a smaller font size for the bibliography section at the bottom */
+.bibliography{
+	font-size: 0.8em;
+}
+
+/* make the numbers of the refences bold */
+span.citation_number{
+	font-weight: bold;
+	margin-right: 4px;
+}
+
+
+table {
+	border: 1px solid #000;
+}
+
+table td {
+	font-size: 0.6em;
+}
+
+table.definition_list{
+	border: 		none;
+	margin-top: 	10px;
+	margin-bottom:	10px;
+}
+
+table.definition_list td {
+/*	font-size: 1em;*/
+	font-size: 			14px;
+}
+
+
+.article_metadata {
+	font-size: 0.6em;
+}
+
+/* box for the simple and short explanation of springer quotes */
+#simple_explanation{
+/*	background: #CFD4D8;*/
+	padding: 			10px 20px;
+	margin-top: 		15px;
+	text-align: 		justify;
+}
+#simple_explanation h3 {
+	margin: 		0;
+	padding: 		0;
+	text-align: 	center;
+}
+
+/* "highlighting explanation" and "about" box -- , #facebox .about  */
+#highlighting_explanation, #about {
+	padding: 		5px 30px;
+}
+#highlighting_explanation h2, #about h2 {
+	text-align: 	center;
+}
+
+/* box for the simple and short explanation of springer quotes */
+#quotes_explanation{
+/*	background: 	#CFD4D8;*/
+	padding: 		10px 20px;
+	margin-top: 	10px;
+	text-align: 	justify;
+}
+#quotes_explanation h3 {
+	margin: 		0;
+	padding: 		0;
+	text-align: 	center;
+}
+
+#recent_quotes h2{
+	text-align: 	center;
+}
+
+/*
+list of last highlighted articles on the front page
+*/
+#recent_quotes ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+
+#facebox .about{
+	background: 	white;
+}
+
+#sharing_box, #facebox .sharing_box {
+	width: 			520px;
+	height: 		220px;
+	display: 		none;
+	background: 	#CFD4D8; //#0096D7;
+}
+
+#twitter_share{
+	margin-top: 	10px;
+}
+
+
+/* credit in the footer of each page */
+#credit{
+	width: 			800px;
+	margin: 		0 auto;
+	margin-bottom:	20px;
+	margin-top:		10px;
+	padding: 		15px 20px;
+	text-align: 	center;
+	vertical-align: middle;
+	background: 	#FFF;
+/*	font-size: 		0.8em;*/
+}
+
+#credit div {
+/*	height: 		31px;*/
+	margin-top:		4px;
+	text-align: 	center;
+/*	border: 		1px solid black;*/
+	float:			left;
+}
+
+#logo{
+	border: 		none;
+	display:		block;
+	margin-left:	auto;
+	margin-right:	auto;
+	margin-bottom:	10px;
+}
+
+#result_pagination{
+	padding-bottom:10px;
+}
+
+#menue {
+	text-align: center;
+	margin: 0 auto;
+/*	margin: 10px 0px 15px 0px;*/
+}
+
+/*#menue, #search_box {
+	margin: 0 auto;
+}*/
+
+#search_box  {
+/*	margin: 0 auto;*/
+	margin: 30px 0 30px 0;
+	text-align: center;
+/*	font-size:	1.4em;	*/
+}
+
+/*#search_box label{
+	border:			1px;
+	font-size:		1.4em;
+	width: 150px;
+}*/
+
+#search_box input[type=text]{
+	width: 			380;
+	font-size:		1.4em;
+	margin: 		0px;
+	padding: 		4px;
+	font-weight: 	normal;
+}
+
+#search_box input[type=submit] {
+	font-size:		1.4em;
+	margin: 		0px;
+	margin-left: 	4px;
+	padding: 		4px;
+	font-weight: 	normal;
+	width: 			100px;
+}
+
+
+/* ======================================================================
+== search results and history list of highlighted articles
+** ====================================================================== */
+
+.quote{
+	padding: 	4px;
+	height: 	95px;
+}
+
+.qrcode  {
+/*	width: 10%; 		*/
+/*	width: 100%; 		*/
+	float: left;
+	margin-right: 2%;
+	border: none;
+}
+.details {
+	width: 68%;
+	float: left;
+	margin-right: 2%;
+}
+.bubble  {
+	width: 16%;
+	float: left;
+	text-align: center;
+}
+
+.bubble img {
+	margin-top: 4px;
+	border: none;
+}
+
+.clear {
+	clear: both;
+	margin-bottom: 1em;
+}
+
+
+/* ======================================================================
+==
+** ====================================================================== */
+
+.result{
+	padding: 	4px;
+/*	border: 	1px solid blue;*/
+/*	height: 	95px;	*/
+}
+
+
+.highlight{
+	background: #CFD4D8;
+	cursor: 	hand;
+}
+
+/* math stuff */
+sup {
+	vertical-align: 20%;
+}
+
+/*
+style making menu sticky on top in /article/...
+*/
+.sticky {
+	position:	fixed;
+	top:		0;
+	left:		0;
+	width:		100%;
+	background: #CFD4D8;
+	padding: 	4px 0;
+}
+
+.opacity .top.hidden {
+	opacity:0;
+}
+
+.no-opacity .top.hidden {
+	display:none;
+}
+
+
+/*
+styling different parts of the scientifc articles
+*/
+.abstract {
+	font-style: italic;
+	text-align: center;
+}
+
+.authors {
+	font-weight: bold;
+	text-align: center;
+}
+
+
+
+/*
+speech bubbles as described here
+http://nicolasgallagher.com/pure-css-speech-bubbles/
+*/
+/* ======================================================================
+== RECTANGLE-BORDER STYLE WITH CURVE
+** ====================================================================== */
+
+.rectangle-speech-border {
+	position:relative;
+	padding:50px 15px;
+	margin:1em 0 3em;
+	border:10px solid #77b5f7; //#5a8f00;
+	text-align:center;
+	color:#333;
+	background:#fff;
+
+	/* css3 */
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px;
+}
+
+/* creates larger curve */
+.rectangle-speech-border:before {
+	content:"";
+	position:absolute;
+	z-index:10;
+	bottom:-40px;
+	left:50px;
+	width:50px;
+	height:30px;
+	border-style:solid;
+	border-width:0 10px 10px 0;
+	border-color: #77b5f7; //#5a8f00;
+	background:transparent;
+
+	/* css3 */
+	-moz-border-radius-bottomright:80px 50px;
+	-webkit-border-bottom-right-radius:80px 50px;
+	border-bottom-right-radius:80px 50px;
+}
+
+/* creates smaller curve */
+.rectangle-speech-border:after {
+	content:"";
+	position:absolute;
+	z-index:10;
+/*	top:-40px;
+	left:50px;	*/
+	bottom:-40px;
+	left:50px;
+	width:20px;
+	height:30px;
+	border-style:solid;
+	border-width:0 10px 10px 0;
+	border-color: #77b5f7; //#5a8f00;
+	background:transparent;
+
+	/* css3 */
+	-moz-border-radius-bottomright:40px 50px;
+	-webkit-border-bottom-right-radius:40px 50px;
+	border-bottom-right-radius:40px 50px;
+}
+
+/* creates a small circle to produce a rounded point where the two curves meet */
+.rectangle-speech-border>:first-child:before {
+	content:"";
+	position:absolute;
+	bottom:-40px;
+	left:45px;
+	width:10px;
+	height:10px;
+	background: #77b5f7; //#5a8f00;
+
+	/* css3 */
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+
+/* creates a white rectangle to cover part of the oval border*/
+.rectangle-speech-border>:first-child:after {
+	content:"";
+	position:absolute;
+	bottom:-10px;
+	left:76px;
+	width:24px;
+	height:15px;
+	background:#fff;
+}
+
+

@@ -2,7 +2,7 @@
 
 This is the source code for [Springer Quotes][sq], the application with which [I won the 1st prize][challenge] in the Springer API Challenge 1.0.
 
-I am open sourcing this code, so that others can take some bits and pieces that they need. Also this seems like the right thing to do, as I have used some many open source tools (as you will see later).
+I am open sourcing this code, so that others can take some bits and pieces that they need. Also this seems like the right thing to do, as I have used some many open source tools (as you will see later). This code is released under [MIT License (MIT)](http://spier.mit-license.org/).
 
 If you should have any issues getting this to work, you can ping me [@sebastianspier][@seb] and I will try to help out.
 

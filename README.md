@@ -45,7 +45,7 @@ Once you have these, you need to modify the configuration file `environment_vari
 1. `bundle exec rackup`
 1. Springer Quotes is now running at `http://localhost:9292`
 
-Test the application by visiting the following URLs:
+Test the application by visiting the following URLs. The screens should look like the images below.
 
 - normal article view - `http://localhost:9292/article/doi:10.1007/s10680-009-9177-y#h[Itacin,1,4]` 
 - quotes view - `http://localhost:9292/quotes/doi:10.1007/s10680-009-9177-y?quotes=h[Itacin,1,4]`

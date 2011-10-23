@@ -12,7 +12,7 @@ There are two interesting pieces to this application that I want to highlight:
 
 * `./emphasis` folder - The [Emphasis JavaScript Library](https://github.com/NYTimes/Emphasis) is used for the quote selection effect in the UI. I have ported the Javascript code to ruby as well. This is used for the generation of the **quotes view** (see the images below). 
 * `./xls` folder - XSLT is used to transform Springer's A++ XML format, as returned by the Springer API, into HTML. 
-* yql_simple gem - I am using my ruby gem [YqlSimple](spier/gem_yql_simple) as a minimalist wrapper around [YQL][yql]. I don't really need the power of YQL in this application but I like YQL, so I ended up using it for the bit.ly communication ;)
+* yql_simple gem - I am using my ruby gem [YqlSimple](https://github.com/spier/gem_yql_simple) as a minimalist wrapper around [YQL][yql]. I don't really need the power of YQL in this application but I like YQL, so I ended up using it for the bit.ly communication ;)
 
 ## Tools
 

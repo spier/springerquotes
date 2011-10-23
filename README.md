@@ -47,13 +47,13 @@ Once you have these, you need to modify the configuration file `environment_vari
 
 Test the application by visiting the following URLs:
 
-- normal article view - `(http://localhost:9292/article/doi:10.1007/s10680-009-9177-y#h[Itacin,1,4]` 
+- normal article view - `http://localhost:9292/article/doi:10.1007/s10680-009-9177-y#h[Itacin,1,4]` 
 - quotes view - `http://localhost:9292/quotes/doi:10.1007/s10680-009-9177-y?quotes=h[Itacin,1,4]`
 
 ![normal article view](https://github.com/spier/springerquotes/raw/master/example_images/normal_article_view.png "Normal article view") 
 ![quotes view](https://github.com/spier/springerquotes/raw/master/example_images/quotes_view.png "Quotes view") 
 
-If you should have any issues getting this to work, you can ping me [@sebastianspier][@seb] and I will try to help you out.
+If you should have any issues getting this to work, you can ping me [@sebastianspier][@seb] and I will try to help out.
 
 [@seb]: https://twitter.com/#!/sebastianspier
 [challenge]: http://spier.hu/2011/07/i-won-the-springer-api-challenge-1.0/
